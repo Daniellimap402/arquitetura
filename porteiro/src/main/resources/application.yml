@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: porteiro
+  cloud:
+    gateway:
+      routes:
+        - id: carrinhoModule
+          uri: lb://carrinho
+          predicates:
+            - Path=/carrinho/**
+        - id: produtoModule
+          uri: lb://produto
+          predicates:
+            - Path=/produto/**
+server:
+  port: 9999
